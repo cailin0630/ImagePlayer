@@ -58,14 +58,10 @@ namespace ImagePlayer
 
         private void ButtonPlay_OnClick(object sender, RoutedEventArgs e)
         {
-           
-
             _running = true;
 
             Task.Factory.StartNew(() =>
             {
-               
-
                 while (_running)
                 {
                     var currentIndex = CurrentCount = CurrentCount == TotalCount ? 0 : CurrentCount - 1;
@@ -77,16 +73,12 @@ namespace ImagePlayer
                             ImageSingle.Source = _imageSources[i];
                             CurrentCount = i + 1;
                             _speed = int.Parse(ComboBoxSpeed.SelectedValue.ToString());
-                           
-                           
                         });
                         Thread.Sleep(1000 / _speed);
                         if (!_running)
                             break;
-
                     }
                 }
-              
             });
         }
 
@@ -127,13 +119,12 @@ namespace ImagePlayer
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-       
         private void ButtonPrev_OnClick(object sender, RoutedEventArgs e)
         {
             if (CurrentCount <= 1)
                 return;
             CurrentCount--;
-            ImageSingle.Source = _imageSources[CurrentCount-1];
+            ImageSingle.Source = _imageSources[CurrentCount - 1];
         }
 
         private void ButtonNext_OnClick(object sender, RoutedEventArgs e)
