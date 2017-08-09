@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 
 namespace ImagePlayer
 {
+    
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
@@ -20,9 +21,9 @@ namespace ImagePlayer
             this.Main.DataContext = this;
             for (double i = 0.25; i < 8; i*=2)
             {
-                ComboBoxSpeed.Items.Add(i);
+               // ComboBoxSpeed.Ticks.Add(i);
             }
-            
+           
             
         }
 
@@ -110,6 +111,7 @@ namespace ImagePlayer
             }
         }
 
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         

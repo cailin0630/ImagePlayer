@@ -156,7 +156,10 @@ namespace ImagePlayer
         protected virtual void Play(bool startPlay)
         {
             if (ImageSourceList == null)
+            {
                 return;
+            }
+              
             if (!startPlay)
             {
                 _dispatcherTimer.Stop();
