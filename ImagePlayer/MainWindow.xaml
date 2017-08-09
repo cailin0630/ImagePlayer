@@ -6,8 +6,49 @@
         xmlns:local="clr-namespace:ImagePlayer"
         mc:Ignorable="d"
         Title="MainWindow"
-        Background="#959595">
-    <Grid>
-        <local:MyImagePlayer></local:MyImagePlayer>
-    </Grid>
+        Background="#959595"
+        Name="Main">
+    <StackPanel>
+        <local:UcImagePlayer
+               x:Name="UcImagePlayer"
+               Width="300"
+               Height="300"
+               ImageSourceList="{Binding ImageSourceList}"
+               CurrentFrameIndex="{Binding CurrentFrameIndex,Mode=TwoWay}"
+               StartPlay="{Binding StartPlay}"
+               TotalFrameCount="{Binding TotalFrameCount,Mode=TwoWay}"
+               PlaySpeed="{Binding PlaySpeed,Mode=TwoWay}"
+               ></local:UcImagePlayer>
+        <ComboBox Name="ComboBoxStretch"
+                  ></ComboBox>
+        <ComboBox Name="ComboBoxSpeed"
+                  SelectedValue="{Binding PlaySpeed,Mode=TwoWay}"
+                  ></ComboBox>
+        <Button Name="ButtonOpen"
+                Click="ButtonOpen_OnClick"
+                Content="Open">
+        </Button>
+        <Button Name="ButtonPlay"
+                Click="ButtonPlay_OnClick"
+                Content="play"></Button>
+        <Button Name="ButtonStop"
+                Content="Stop"
+                Click="ButtonStop_OnClick"></Button>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="当前帧:"></TextBlock>
+            <TextBlock Text="{Binding CurrentFrameIndex}"></TextBlock>
+            <TextBlock Text="总帧数:"></TextBlock>
+            <TextBlock Text="{Binding TotalFrameCount}"></TextBlock>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button Name="ButtonPrev"
+                    Content="◀"
+                    Click="ButtonPrev_OnClick"></Button>
+            <Button Name="ButtonNext"
+                    Content="▶"
+                    Click="ButtonNext_OnClick"></Button>
+        </StackPanel>
+    </StackPanel>
 </Window>
