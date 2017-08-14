@@ -12,6 +12,7 @@ namespace ImagePlayer
     public class UcImagePlayer : System.Windows.Controls.Image, INotifyPropertyChanged
     {
         private readonly DispatcherTimer _dispatcherTimer;
+        
 
         public UcImagePlayer()
         {

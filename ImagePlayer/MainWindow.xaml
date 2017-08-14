@@ -7,7 +7,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MainWindow"
-        Background="#959595"
+       
         Name="Main">
     <Window.Resources>
         <system:Double x:Key="PlaySpeedMin">0.25</system:Double>
@@ -15,7 +15,7 @@
     </Window.Resources>
     <StackPanel>
         
-        <local:UcImagePlayer
+        <!--<local:UcImagePlayer
                x:Name="UcImagePlayer"
                Width="300"
                Height="300"
@@ -59,7 +59,14 @@
             <TextBlock Text="{Binding TotalFrameCount}"></TextBlock>
             <TextBlock Text="播放速度:"></TextBlock>
             <TextBlock Text="{Binding PlaySpeed}"></TextBlock>
-        </StackPanel>
+        </StackPanel>-->
+        
+        <local:UcImagePlayerExt
+            Height="600"
+            Width="600"
+            CurrentImageStretch="Fill"
+            ImageSourceList="{Binding ImageSourceList}"
+            ></local:UcImagePlayerExt>
        
         <Button Name="ButtonOpen"
                 Click="ButtonOpen_OnClick"
@@ -67,13 +74,6 @@
         </Button>
        
       
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-         
-        </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-           
-        </StackPanel>
+       
     </StackPanel>
 </Window>
